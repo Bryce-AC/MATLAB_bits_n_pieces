@@ -1,15 +1,13 @@
 close all;
 clear all;
 
-fft_resolution = 2048;
-
 %extract audio data and sampling frequency from two files
 [sig_1,fs_1] = audioread('audio_1.wav');
 [sig_2,fs_2] = audioread('audio_2.wav');
 
 %perform fourier transform and circular shift
-SIG_1 = fftshift(fft(sig_1(1:length(sig_1),1),fft_resolution));
-SIG_2 = fftshift(fft(sig_2(1:length(sig_2),1),fft_resolution));
+SIG_1 = fftshift(fft(sig_1(1:length(sig_1),1)));
+SIG_2 = fftshift(fft(sig_2(1:length(sig_2),1)));
 
 %generate digital freq axes
 fd_1 = linspace(-0.5,0.5,length(SIG_1));
